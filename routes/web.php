@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//文章列表页
+Route::get('/posts','PostController@index');
+//创建文章
+Route::get('/posts/create','PostController@create');
+Route::post('/posts','PostController@store');
+//文章详情页
+Route::get('/posts/{post}','PostController@show');
+//编辑文章
+Route::get('/posts/{post}/edit','PostController@edit');
+Route::post('/posts/{post}','PostController@update');
+//删除文章
+Route::get('/posts/delete','PostController@delete');
