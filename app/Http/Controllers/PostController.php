@@ -15,9 +15,9 @@ class PostController extends Controller
     }
 
     //详情页面
-    public function show()
+    public function show(Post $post)
     {
-        return view('post.show');
+        return view('post.show',compact('post'));
     }
 
     //创建页面
@@ -29,7 +29,8 @@ class PostController extends Controller
     //创建逻辑
     public function store()
     {
-        return 123;
+        $post = Post::create(request(['title','content']));
+        return redirect('/posts');
     }
 
     //编辑页面
